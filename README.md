@@ -11,6 +11,7 @@
 # A typical output in the terminal will be as follows:
 
 Amazon Price: 91900
+
 Flipkart Price: 94900
 
 No. of Price Enquiries: 1
