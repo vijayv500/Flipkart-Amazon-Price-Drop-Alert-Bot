@@ -58,6 +58,10 @@ def send_email(website, URL, price):
 amazon_price = amazon_price(AMAZON_URL)
 flipkart_price = flipkart_price(FLIPKART_URL)
 
+print(amazon_price)
+print(flipkart_price)
+print(wish_price)
+
 count = 0
 i=1
 while count == 0:
