@@ -9,7 +9,7 @@ headers = ({'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_5_2) '
 
 PRODUCT_NAME = 'iPad Pro M1' #for example
 AMAZON_URL = 'https://www.amazon.in/Apple-iPad-Pro-11-inch-27-96-Cellular/dp/B0932R3PMQ/ref=sr_1_1?crid=JD2BW59GT5SR&dchild=1&keywords=ipad+pro+m1&qid=1635764167&sprefix=ipad+pro+m%2Caps%2C326&sr=8-1'
-FLIPKART_URL = 'https://www.flipkart.com/apple-ipad-pro-2021-3rd-generation-8-gb-ram-256-rom-11-inches-wi-fi-5g-space-grey/p/itm4f5d1315fdfe7?pid=TABG3YZNBDADBN7T&lid=LSTTABG3YZNBDADBN7T63PY5J&marketplace=FLIPKART&q=ipad+pro+m1&store=tyy%2Fhry&srno=s_1_1&otracker=search&otracker1=search&fm=SEARCH&iid=64a3682d-cf5c-4069-a742-dd4e12406ffb.TABG3YZNBDADBN7T.SEARCH&ppt=sp&ppn=sp&ssid=ank3tfrn8w0000001635764180888&qH=581be6ed13a94224'
+FLIPKART_URL = 'https://www.flipkart.com/realme-buds-wireless-2-dart-charge-active-noise-cancellation-anc-bluetooth-headset/p/itm6e326a3e4bce4?pid=ACCG4WXWSQWWT9X2&lid=LSTACCG4WXWSQWWT9X21OAZTL&otracker=clp_banner_2_9.bannerX3.BANNER_electronics-big-diwali-sale-store_D5HTLMG8GJYW&fm=neo%2Fmerchandising&iid=M_39c082df-d911-4414-b65c-90db10abd968_9.D5HTLMG8GJYW&ppt=hp&ppn=homepage&ssid=b50if5fajk0000001635834978909'
 WISH_PRICE = 90000
 EMAIL_ID = 'you@gmail.com' #same mail will be used for sending & receving the alerts here
 PASSWORD = 'yourpassword'
@@ -30,7 +30,7 @@ def amazon_price(url):
 
 def flipkart_price(url):
     try:
-        request = Request(url=FLIPKART_URL, headers=headers)
+        request = Request(url, headers=headers)
         response = urlopen(request)
         html = response.read()
         html_soup = BeautifulSoup(html, 'html.parser')
@@ -38,7 +38,7 @@ def flipkart_price(url):
         price = int(re.sub(r'[,₹]', '', price))
     except Exception as e:
         print("Can't load Flipkart.in")
-        return price
+    return price
 
 
 def send_email(website, URL, price):
